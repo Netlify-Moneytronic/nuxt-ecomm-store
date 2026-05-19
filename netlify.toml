@@ -22,8 +22,8 @@ CYPRESS_CACHE_FOLDER = "./node_modules/CypressBinary"
 # set TERM variable for terminal output
 TERM = "xterm"
 
-[[plugins]]
-# runs Cypress tests against the deployed URL
+# Run Cypress only on production deploys; skip on branch-deploy and deploy-preview
+[[context.production.plugins]]
 package = "netlify-plugin-cypress"
-[plugins.inputs]
+[context.production.plugins.inputs]
 browser = "electron"
