@@ -18,11 +18,8 @@
     "lint:fix": "eslint --ext .vue,.ts,.js 'components/**' 'layouts/**' 'pages/**' 'graphql/**/*.ts' 'app.vue' 'nuxt.config.ts' --fix"
   },
   "dependencies": {
-    "@c6o/codezero-agent": "^1.0.2",
-    "@netlify/cache": "^3.0.9",
     "@netlify/functions": "^4.1.13",
     "@nuxt/image": "^1.10.0",
-    "node-fetch": "^3.3.2",
     "nuxt": "^3.16.2",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
