@@ -51,6 +51,10 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxtjs/apollo'],
 
+  tailwindcss: {
+    viewer: false,
+  },
+
   image: {
     provider: 'netlify',
     domains: ['cdn.shopify.com', 'images.contentstack.io'],

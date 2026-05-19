@@ -10,6 +10,7 @@
     "test:componentrun": "vitest",
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "dev:netlify": "CHOKIDAR_USEPOLLING=true CHOKIDAR_INTERVAL=500 PUPPETEER_SKIP_DOWNLOAD=true PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true netlify dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
