@@ -73,9 +73,9 @@ jobs:
         env:
           CI: true
 
-      # Trigger Netlify build only if both linting and component tests pass
-      # The if: success() condition ensures all previous steps must have succeeded
+      # Trigger Netlify build only if both linting and component tests pass,
+      # and only on main — other branches rely on Netlify's branch/preview deploys.
       - name: Trigger Netlify build
-        if: success()
+        if: success() && github.ref == 'refs/heads/main'
         run: |
           curl -X POST -d {} "${{ secrets.NETLIFY_BUILD_HOOK_URL }}"
