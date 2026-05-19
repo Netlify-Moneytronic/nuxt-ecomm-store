@@ -18,9 +18,20 @@
       `${product.value.productByHandle.priceRange.maxVariantPrice.amount} ${product.value.productByHandle.priceRange.maxVariantPrice.currencyCode}`,
   );
   const { data: related } = await useAsyncQuery(getProductsQuery, {
-    first: 3,
+    first: 8,
     query: `product_type:${product.value.productByHandle.productType}`,
   });
+
+  const formattedRelatedProducts = computed(
+    () =>
+      related.value?.products.edges.map(({ node }) => ({
+        id: node.id,
+        title: node.title,
+        price: parseFloat(node.priceRange.maxVariantPrice.amount),
+        image: node.images.edges[0].node.src,
+        link: `/products/${node.handle}`,
+      })) || [],
+  );
 
   const redirectToPayment = async (): Promise<void> => {
     const { data } = await useAsyncQuery(createCheckoutMutation, {
@@ -54,16 +65,8 @@
         </button>
       </div>
     </div>
-    <div class="flex my-20">
-      <ProductCard
-        v-for="{ node } in related.products.edges"
-        :key="node.id"
-        :image="node.images.edges[0].node.src"
-        :title="node.title"
-        :price="`${node.priceRange.maxVariantPrice.amount} ${node.priceRange.maxVariantPrice.currencyCode}`"
-        :link="`/products/${node.handle}`"
-        :description="node.description"
-      />
+    <div class="my-20 px-20">
+      <LazyProductCarousel title="Related Products" :products="formattedRelatedProducts" />
     </div>
   </section>
 </template>

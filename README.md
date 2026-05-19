@@ -1,10 +1,10 @@
-# Nuxt Minimal Starter
+# Nuxt Minimal Starter on Netlify
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup Now
 
-Make sure to install dependencies:
+Make sure to install all dependencies:
 
 ```bash
 # npm

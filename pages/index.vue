@@ -4,7 +4,7 @@
   import { getProductsQuery } from '../graphql/getProductsQuery';
 
   useHead({
-    title: 'Athletic Shoe Store',
+    title: 'Athletic Shoe Store | High Performance Running Shoes Now Available',
     meta: [
       {
         name: 'description',
@@ -58,6 +58,7 @@
 
 <template>
   <div>
+    <DiscountModal />
     <HeroBanner />
     <div class="space-y-32 px-8">
       <LazyProductCarousel title="BEST SELLERS" :products="formattedProducts" />
