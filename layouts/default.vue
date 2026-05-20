@@ -5,5 +5,8 @@
       <slot />
     </main>
     <SiteFooter />
+    <ClientOnly>
+      <ChatBox />
+    </ClientOnly>
   </div>
 </template>
